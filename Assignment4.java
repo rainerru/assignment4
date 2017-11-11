@@ -1,4 +1,5 @@
-package assignment4_int;
+//package assignment4_int;
+import java.io.File;
 
 public interface Assignment4 {
    /** loads the xml file or throws an Exception if anything goes wrong */

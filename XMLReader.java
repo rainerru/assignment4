@@ -1,28 +1,19 @@
+import java.io.File;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.*;
-import java.io.File;
 
 public class XMLReader
 {
 
-	public static void main (String[] args)
-	{
-		System.out.println("asdf");
-		try {
-		ItemList list0 = getListFromXMLFile("./input.xml");
-		System.out.println("list0.getprice (155.0) = " + list0.getPrice());
-		} catch ( Exception e ) { e.printStackTrace(); }
-	}
-
-	public static ItemList getListFromXMLFile ( String filename ) throws Exception
+	public static ItemList getListFromXMLFile ( File filename ) throws Exception
 	{ 
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new File( filename ));
+			Document doc = db.parse(filename);
 			Element root = doc.getDocumentElement();
 
-			ItemList fullList = new ItemList("fullList");
+			ItemList fullList = new ItemList("root");
 			
 			addListToList(root,fullList);
 
